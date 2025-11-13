@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- preloader -->
+  <div id="preloader">
+    <div class="loader"></div>
+    <h2 class="loading-text">Loading CinemaVerse...</h2>
+  </div>
+  <!-- Navbar and Logo -->
+  <header>
+    <nav class="navbar">
+      <div class="logo-container">
+        <img src="logo.png" alt="CinemaVerse Logo" class="logoimg">
+        <div class="logo">Cinema<span>Verse</span></div>
+      </div>
+
+      <!-- Moblie screen menu -->
+      <div id="menu-btn" class="nav-toggle-label">
+        <span></span>
+      </div>
+
+      <!-- Navigation links -->
+      <ul class="navbar-nav" id="nav-menu">
+        <li><a href="#Home" class="nav-link">Home</a></li>
+        <li><a href="#Movies" class="nav-link">Movies</a></li>
+        <li><a href="#Tv-show" class="nav-link">Tv shows</a></li>
+        <li><a href="#Subscriptions" class="nav-link">Subscriptions</a></li>
+        <li><a href="#Login" class="nav-link">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- Home section  -->
+  <section class="Home" id="Home">
+    <div class="main-text">
+      <h1>Your ultimate destination for every movie📽️</h1>
+
+      <p>Discover trending Movies,Tv Shows, timeless classics, and hidden gems.</p>
+      <button class="Explore-btn" onclick="Explore()">Explore Movies</button>
+    </div>
+  </section>
+
+  <!-- Movies section  -->
+  <section class="Movies" id="Movies">
+    <h2 class="section-title">Trending Movies</h2>
+    <div class="slider-container">
+      <button class="slider-btn prev" id="prevMovies">&#10094;</button>
+      <div class="slider" id="movieSlider"></div>
+      <button class="slider-btn next" id="nextMovies">&#10095;</button>
+    </div>
+  </section>
+
+
+  <!-- TV Shows Section -->
+  <section class="Movies" id="Tv-show">
+    <h2 class="section-title">Popular TV Shows</h2>
+    <div class="slider-container">
+      <button class="slider-btn prev" id="prevTv">&#10094;</button>
+      <div class="slider" id="tvSlider"></div>
+      <button class="slider-btn next" id="nextTv">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- Subscriptions Section -->
+  <section class="Subscriptions" id="Subscriptions">
+    <h2 class="section-title">Choose Your Plan</h2>
+    <div class="plans">
+      <div class="plan-card">
+        <h3>Basic</h3>
+        <p class="price">₹199/month</p>
+        <ul>
+          <li>480p Quality</li>
+          <li>Watch on 1 device</li>
+          <li>Access to all movies & shows</li>
+        </ul>
+        <button class="subscribe-btn">Subscribe</button>
+      </div>
+
+      <div class="plan-card featured">
+        <h3>Standard</h3>
+        <p class="price">₹499/month</p>
+        <ul>
+          <li>1080p Full HD</li>
+          <li>Watch on 2 devices</li>
+          <li>Unlimited streaming</li>
+        </ul>
+        <button class="subscribe-btn">Subscribe</button>
+      </div>
+
+      <div class="plan-card">
+        <h3>Premium</h3>
+        <p class="price">₹799/month</p>
+        <ul>
+          <li>4K Ultra HD</li>
+          <li>Watch on 4 devices</li>
+          <li>Ad-free experience</li>
+        </ul>
+        <button class="subscribe-btn">Subscribe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer part -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <h2>Cinema<span>Verse</span></h2>
+        <p>Your one-stop destination for the latest movies, TV shows, and trailers. Stream, explore, and enjoy your
+          favorites anytime, anywhere!</p>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <p>Email: gmail@.com</p>
+        <p>Phone: +91 78619 00411</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 CinemaVerse. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Login Popup -->
+  <div id="loginPopup" class="login-popup">
+    <div class="login-box">
+      <span class="close-btn" id="closePopup">&times;</span>
+      <h2>Login to CinemaVerse</h2>
+      <form>
+        <div class="input-group">
+          <label>Name</label>
+          <input type="text" placeholder="Enter your Name" required>
+        </div>
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email" required>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+<script>
+  //  Navbar Scroll Effect 
+  window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) navbar.classList.add("scrolled");
+    else navbar.classList.remove("scrolled");
+  });
+
+  //  Explore Button 
+  function Explore() {
+    window.location.href = "#Movies";
+  }
+
+  //  Preloader 
+  window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+    setTimeout(() => {
+      preloader.classList.add("fade-out");
+      setTimeout(() => preloader.style.display = "none", 1000);
+    }, 2000);
+  });
+  //  MOVIES DATA 
+  const movieData = [
+    { title: "Fast X", img: "https://image.tmdb.org/t/p/w500/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg" },
+    { title: "Avatar 2", img: "https://image.tmdb.org/t/p/w500/9PFonBhy4cQy7Jz20NpMygczOkv.jpg" },
+    { title: "Free Guy", img: "https://image.tmdb.org/t/p/w500/6MKr3KgOLmzOP6MSuZERO41Lpkt.jpg" },
+    { title: "Doctor Strange", img: "https://image.tmdb.org/t/p/w500/keIxh0wPr2Ymj0Btjh4gW7JJ89e.jpg" },
+    { title: "The Batman", img: "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg" },
+    { title: "Black Panther", img: "https://image.tmdb.org/t/p/w500/6ELJEzQJ3Y45HczvreC3dg0GV5R.jpg" }
+
+  ];
+
+  // TV SHOWS DATA
+  const tvData = [
+
+    { title: "Money Heist", img: "https://m.media-amazon.com/images/M/MV5BMmNkMWZmNWQtNjljNi00YTU4LTg0ZTEtY2U0OTk0MmI3NTNmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" },
+    { title: "The Witcher", img: "https://m.media-amazon.com/images/M/MV5BOTQzMzNmMzUtODgwNS00YTdhLTg5N2MtOWU1YTc4YWY3NjRlXkEyXkFqcGc@._V1_.jpg" },
+    { title: "Breaking Bad", img: "https://resizing.flixster.com/qeGRjEC1edJQu8dLViQ1BXLeZos=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vUlRUVjYyNzkzLndlYnA=" },
+    { title: "Loki", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLnOdOzFD13nJVekLPd5Ji2CCtSDO9VwrPCA&s" },
+    { title: "The Boys", img: "https://m.media-amazon.com/images/M/MV5BMWJlN2U5MzItNjU4My00NTM2LWFjOWUtOWFiNjg3ZTMxZDY1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" },
+    { title: "Stranger Things", img: "https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABU9yIX_JI7RCDZQHZrWXZ7DlCMsNMjTUiiraPbGY2qey9kY88B02KBQtuZnxRCn86d2mExst37oD5Ahphjn8ChoO_ib1SgtU-7UOCqcgvLKdgsBi6AKyHCSTVXIGNUABFzn8PQ.jpg?r=27a" }
+  ];
+
+  // Dynamic Content Loading 
+  function createSlides(containerId, data) {
+    const container = document.getElementById(containerId);
+    data.forEach(item => {
+      const slide = document.createElement("div");
+      slide.classList.add("slide");
+      slide.innerHTML = `<img src="${item.img}" alt="${item.title}" title="${item.title}">`;
+      container.appendChild(slide);
+    });
+  }
+  createSlides("movieSlider", movieData);
+  createSlides("tvSlider", tvData);
+
+  //  Manual Slider Controls 
+  function setupSlider(sliderId, prevBtnId, nextBtnId) {
+    const slider = document.getElementById(sliderId);
+    const prev = document.getElementById(prevBtnId);
+    const next = document.getElementById(nextBtnId);
+    const slideWidth = 250; 
+
+    next.addEventListener("click", () => {
+      slider.scrollBy({ left: slideWidth, behavior: "smooth" });
+    });
+
+    prev.addEventListener("click", () => {
+      slider.scrollBy({ left: -slideWidth, behavior: "smooth" });
+    });
+  }
+
+  setupSlider("movieSlider", "prevMovies", "nextMovies");
+  setupSlider("tvSlider", "prevTv", "nextTv");
+
+  // menu for moblie
+
+  const menuBtn = document.getElementById("menu-btn");
+  const navMenu = document.getElementById("nav-menu");
+
+  menuBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("show-menu");
+    menuBtn.classList.toggle("open");
+
+
+  });
+
+
+  // Login Popup
+  const loginLink = document.querySelector('a[href="#Login"]');
+  const loginPopup = document.getElementById("loginPopup");
+  const closePopup = document.getElementById("closePopup");
+
+  loginLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    loginPopup.classList.add("active");
+  });
+
+  closePopup.addEventListener("click", () => {
+    loginPopup.classList.remove("active");
+  });
+
+  // Close when clicking outside the popup
+  window.addEventListener("click", (e) => {
+    if (e.target === loginPopup) {
+      loginPopup.classList.remove("active");
+    }
+  });
+
+
+  // Auto-close mobile menu when clicking a nav link
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (navMenu.classList.contains("show-menu")) {
+        navMenu.classList.remove("show-menu");
+        menuBtn.classList.remove("open");
+      }
+    });
+  });
+
+</script>
+
+</html>
